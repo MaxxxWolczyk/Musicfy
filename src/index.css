@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #000;
+}
+
+.text_primary {
+  color: rgb(167, 167, 167);
+}
+
+.text_green-primary {
+  color: rgb(35, 192, 91);
+}
+
+.bg_primary {
+  background-color: #121212;
+}
+
+.bg_gradient_blue {
+  background: linear-gradient(0deg, rgba(18, 18, 18, 1) 55%, #3131b199 100%);
+}
+.bg_gradient_red {
+  background: linear-gradient(0deg, rgba(18, 18, 18, 1) 55%, #bb203b99 100%);
+}
+.bg_gradient_green {
+  background: linear-gradient(0deg, rgba(18, 18, 18, 1) 55%, #3a883299 100%);
+}
+.bg_background {
+  background-color: rgb(74, 80, 87);
+}
+.bg_background-1 {
+  background-color: rgb(102, 113, 128);
+}
+
+.btn_primary {
+  border-radius: 1.25rem;
+  padding-top: 0.25rem /* 4px */;
+  padding-bottom: 0.25rem /* 4px */;
+  padding-left: 1rem /* 16px */;
+  padding-right: 1rem /* 16px */;
+  background-color: rgb(74, 80, 87);
+  font-weight: 600;
+  color: rgb(167, 167, 167);
+  transition: background-color 0.3s;
+  font-size: 1.125rem /* 18px */;
+  line-height: 1.75rem /* 28px */;
+}
+
+.btn_primary:hover {
+  background-color: rgb(102, 113, 128);
+  color: rgb(255 255 255);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+@media (max-width: 600px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 0px;
+  }
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(167, 167, 167);
+
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
+.player_icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  cursor: pointer;
+  color: rgb(167, 167, 167);
+  transition: color 0.3s;
+}
+
+.player_icon:hover {
+  color: white;
+}
+
+/* input range */
+
+input[type="range"] {
+  accent-color: #23c05b;
+}
+
+.divider {
+  margin-bottom: 1.75rem;
+  margin-top: 1.75rem;
+}
+
+/* Animations */
+
+.showMusicControlsAnimation {
+  animation: showMusicControls ease-out 0.2s;
+}
+
+@keyframes showMusicControls {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes hideMusicControls {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.hideMusicControlsAnimation {
+  animation: hideMusicAnimation ease-out 0.2s;
+}
+
+.loaderAnimation:nth-child(1) {
+  animation: loader 1.5s 0.3s infinite alternate;
+  transform-origin: center;
+}
+.loaderAnimation:nth-child(2) {
+  animation: loader 1.5s 0.6s infinite alternate;
+  transform-origin: center;
+}
+.loaderAnimation:nth-child(3) {
+  animation: loader 1.5s 0.9s infinite alternate;
+  transform-origin: center;
+}
+.loaderAnimation:nth-child(4) {
+  animation: loader 1.5s 1.2s infinite alternate;
+  transform-origin: center;
+}
+.loaderAnimation:nth-child(5) {
+  animation: loader 1.5s 0.3s infinite alternate;
+  transform-origin: center;
+}
+.loaderAnimation:nth-child(6) {
+  animation: loader 1.5s 0.3s infinite alternate;
+  transform-origin: center;
+}
+.loaderAnimation:nth-child(7) {
+  animation: loader 1.5s 0.9s infinite alternate;
+  transform-origin: center;
+}
+.loaderAnimation:nth-child(8) {
+  animation: loader 1.5s 0.6s infinite alternate;
+  transform-origin: center;
+}
+.loaderAnimation:nth-child(9) {
+  animation: loader 1.5s 1.2s infinite alternate;
+  transform-origin: center;
+}
+.loaderAnimation:nth-child(10) {
+  animation: loader 1.5s 0.3s infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes loader {
+  0% {
+    height: 0.5rem;
+    background-color: white;
+  }
+  50% {
+    height: 4rem;
+    background-color: #23c05b;
+  }
+
+  100% {
+    height: 0.5rem;
+    background-color: white;
+  }
+}

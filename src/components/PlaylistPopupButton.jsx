@@ -4,7 +4,7 @@ import { setShowModal } from "../redux/features/DesignSlice";
 
 import { BiDotsVertical } from "react-icons/bi";
 
-const AddToPlaylist = ({ width, heigth }) => {
+const PlaylistPopupButton = ({ width, heigth }) => {
   const { showModal } = useSelector((state) => state.design);
   const dispatch = useDispatch();
 
@@ -20,4 +20,4 @@ const AddToPlaylist = ({ width, heigth }) => {
   );
 };
 
-export default AddToPlaylist;
+export default PlaylistPopupButton;

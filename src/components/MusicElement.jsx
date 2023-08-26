@@ -6,7 +6,7 @@ import {
   setActiveSong,
   playPause,
 } from "../redux/features/PlayerSlice";
-import AddToPlaylist from "./addToPlaylist";
+import PlaylistPopupButton from "./PlaylistPopupButton";
 
 const MusicElement = ({
   imageURL,
@@ -31,7 +31,7 @@ const MusicElement = ({
                 : "hidden  group-hover:flex "
             } absolute w-full h-full justify-center items-center opacity-0 hover:opacity-100 bg-black/50 transition-all`}
           >
-            <AddToPlaylist width={10} heigth={10} />
+            <PlaylistPopupButton width={10} heigth={10} />
             <FaPlayCircle
               className={`${
                 songKey === activeSong?.key

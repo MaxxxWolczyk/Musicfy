@@ -10,7 +10,7 @@ import {
   setActiveSong,
   setCurrentKey,
 } from "../../redux/features/PlayerSlice";
-import AddToPlaylist from "../addToPlaylist";
+import PlaylistPopupButton from "../PlaylistPopupButton";
 
 const PopularSongsArtist = ({ topSongs, id }) => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
@@ -68,7 +68,7 @@ const PopularSongsArtist = ({ topSongs, id }) => {
               {item.attributes.name}
             </p>
             <div className=" flex gap-2 items-center ml-auto pr-8">
-              <AddToPlaylist width={8} heigth={8} />
+              <PlaylistPopupButton width={8} heigth={8} />
               <FaPlayCircle
                 className="w-8 h-8 hover:text-white cursor-pointer"
                 onClick={() => {

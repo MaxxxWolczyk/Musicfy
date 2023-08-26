@@ -61,7 +61,7 @@ const MusicElement = ({
         </div>
 
         <p
-          className="text-white font-semibold truncate"
+          className="text-white font-semibold truncate cursor-pointer"
           onClick={() => navigate(`/track/${id}`)}
         >
           {title}

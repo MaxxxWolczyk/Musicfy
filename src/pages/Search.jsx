@@ -55,7 +55,7 @@ const Search = () => {
   }, [searchTerm]);
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 px-10 min-h-screen">
       <h2 className="text-3xl text-white font-bold">Wyszukaj</h2>
       <form className="">
         <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-md max-w-[800px]">

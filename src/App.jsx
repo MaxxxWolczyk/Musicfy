@@ -21,38 +21,37 @@ function App() {
   useEffect(() => {
     switch (location.pathname) {
       case "/": {
-        dispatch(setGradient("3131b199"));
+        dispatch(setGradient("3131b1"));
         break;
       }
       case "/search": {
-        dispatch(setGradient("bb203b99"));
+        dispatch(setGradient("bb203b"));
         break;
       }
       case "/library": {
-        dispatch(setGradient("3a883299"));
+        dispatch(setGradient("3a8832"));
       }
     }
   }, [location.pathname]);
 
+  console.log(gradientColor);
+
   return (
-    <div className="h-screen">
-      <div className="flex sm:gap-2 relative h-[calc(100%-88px)] sm:h-full">
-        <section className="hidden sm:block sm:w-1/3 lg:w-1/4 h-full pl-2 py-2">
+    <div className="h-screen overflow-hidden sm:px-2 sm:py-2">
+      <div className="flex sm:gap-2 relative overflow-hidden  h-[calc(100%-88px)] sm:h-full">
+        <section className="h-full hidden sm:block sm:w-1/3 lg:w-1/4 rounded-md">
           <SideBar />
         </section>
-        <section className="w-full sm:w-2/3 lg:w-3/4 flex-grow sm:py-2 sm:pr-2 h-full overflow-hidden">
+        <section className="w-full sm:w-2/3 lg:w-3/4 flex-grow rounded-md overflow-x-hidden overflow-y-scroll">
           <div
-            className={`h-full w-full  sm:rounded-lg bg_primary`}
+            className="w-full sm:rounded-lg bg_primary"
             style={{
-              backgroundImage: `linear-gradient(0deg, #121212 35%, ${gradientColor}  100%)`,
+              backgroundImage: `linear-gradient(180deg,${gradientColor} 13%, #121212 50%, #121212  100%)`,
               backgroundPosition: "top",
             }}
           >
-            <Profile gradientColor={gradientColor} />
-            <div
-              id="routeContainer"
-              className="h-[calc(100%-80px)] px-4  overflow-y-scroll"
-            >
+            <div id="routeContainer" className="h-[calc(100%-80px)] rounded-xl">
+              <Profile gradientColor={gradientColor} />
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/search" element={<Search />} />

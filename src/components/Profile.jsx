@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { auth } from "../firebase.config.cjs";
 import OAuth from "./OAuth";
 import { useAuthStatus } from "../hooks/useAuthStatus";
+import { useSelector } from "react-redux";
 
 const ProfileComponent = ({ user }) => {
   const [showProfilePanel, setShowProfilePanel] = useState(false);
+
+  const { gradientColor } = useSelector((state) => state.design);
 
   const onClick = () => {
     auth.signOut();
@@ -49,11 +52,15 @@ const ProfileComponent = ({ user }) => {
 
 function Profile({ gradientColor }) {
   const { loggedIn, checkingStatus } = useAuthStatus();
+  console.log(gradientColor);
 
   if (checkingStatus) return <p>loading...</p>;
 
   return (
-    <div className="py-4 pr-2">
+    <div
+      className="py-4 pr-2 sticky w-full top-0 z-50 bg-white"
+      style={{ backgroundColor: gradientColor }}
+    >
       {loggedIn ? <ProfileComponent user={auth.currentUser} /> : <OAuth />}
     </div>
   );

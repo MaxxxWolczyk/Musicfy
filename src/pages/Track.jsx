@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 
 import Loading from "../components/Loading";
 import TrackHeader from "../components/TrackPage/TrackHeader";
+import TrackLyrics from "../components/TrackPage/TrackLyrics";
+import TrackControls from "../components/TrackPage/TrackControls";
 
 const Track = () => {
   const params = useParams();
@@ -16,7 +18,7 @@ const Track = () => {
   if (isFetching) return <Loading />;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-8 min-h-screen">
       <TrackHeader
         bgImage={data.images.background}
         coverart={data.images.coverart}
@@ -24,6 +26,12 @@ const Track = () => {
         gradientColor={data.images.joecolor.split(":").pop(-1)}
         artists={data.artists}
       />
+      <div className="bg-black/50 px-4 pt-4">
+        <TrackControls />
+        <TrackLyrics
+          lyrics={data.sections.filter((item) => item.type === "LYRICS")[0]}
+        />
+      </div>
     </div>
   );
 };

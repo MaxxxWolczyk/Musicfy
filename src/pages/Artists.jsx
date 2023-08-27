@@ -17,7 +17,7 @@ const Artists = () => {
   if (error) return <p>Error..</p>;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col px-4">
       <ArtistHeader
         avatarUrl={data.data[0].avatar}
         name={data.data[0].attributes.name}
@@ -43,6 +43,7 @@ const Artists = () => {
         Similar Artists:
       </h3>
       <SimilarArtists artists={data.data[0].views["similar-artists"].data} />
+
       <div className="mb-48"></div>
     </div>
   );

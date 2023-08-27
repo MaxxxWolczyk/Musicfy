@@ -20,7 +20,7 @@ function HomePage() {
   } = useGetTopChartsCountryQuery();
 
   return (
-    <div className="flex flex-col gap-14">
+    <div className="flex flex-col gap-14 px-4">
       <div>
         <h2 className="text-3xl text-white font-bold">Top Hits Świat</h2>
         <TopCharts data={TCWData} isFetching={TCWFetching} error={TCWError} />

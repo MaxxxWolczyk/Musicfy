@@ -3,23 +3,27 @@ import { useDispatch } from "react-redux";
 import { setGradient } from "../../redux/features/DesignSlice";
 import { Link } from "react-router-dom";
 
-const TrackHeader = ({ coverart, title, gradientColor, artists }) => {
+const TrackHeader = ({ bgImage, coverart, title, gradientColor, artists }) => {
   const dispatch = useDispatch();
+  console.log(bgImage);
 
   useEffect(() => {
     dispatch(setGradient(gradientColor));
   }, [title]);
 
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center">
+    <div className="flex flex-col sm:flex-row sm:items-center px-4">
       <img
         src={coverart}
         alt=""
-        className="w-36 h-36 sm:w-52 sm:h-52 object-cover self-center mb-4 sm:mb-0 mr-0 sm:mr-8"
+        className="w-36 h-36 sm:w-52 sm:h-52 object-cover self-center mb-4 sm:mb-0 mr-0 sm:mr-8 shadow-2xl"
       />
-      <div className="flex flex-col  sm:h-52 justify-center">
-        <h3 className="text-white font-bold text-3xl sm:text-6xl">{title}</h3>
-        <div className="flex ">
+
+      <div className="flex flex-col sm:h-52 justify-center">
+        <h3 className="text-white font-bold text-3xl sm:text-6xl">
+          {title.length > 30 ? title.slice(0, 30) : title}
+        </h3>
+        <div className="flex">
           {artists?.map((item, index) => (
             <Link
               key={item.adamid}

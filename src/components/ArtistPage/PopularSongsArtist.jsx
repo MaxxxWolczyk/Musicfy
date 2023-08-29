@@ -11,10 +11,11 @@ import {
   setCurrentKey,
 } from "../../redux/features/PlayerSlice";
 import PlaylistPopupButton from "../PlaylistPopupButton";
+import { useNavigate } from "react-router-dom";
 
 const PopularSongsArtist = ({ topSongs, id }) => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
-  console.log(topSongs);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -36,13 +37,13 @@ const PopularSongsArtist = ({ topSongs, id }) => {
 
   return (
     <>
-      <h3 className="text-white font-bold text-lg sm:text-3xl mb-2">
+      <h3 className="text-white font-bold text-lg sm:text-3xl mb-4 mt-2">
         Top Songs:
       </h3>
       <div className={`flex flex-col gap-4 w-full`}>
         {topSongs.data.map((item, index) => (
           <div
-            className={`flex w-full items-center p-2 ${
+            className={`flex w-full items-center p-2 rounded-md transition-colors hover:bg-white hover:bg-opacity-25 ${
               item.id === activeSong?.id ? "text_green-primary" : "text_primary"
             }`}
             key={item.id}
@@ -50,7 +51,7 @@ const PopularSongsArtist = ({ topSongs, id }) => {
             {item.id === activeSong?.id ? (
               <img
                 src={isPlaying ? animatedmusicgreen : musicgreen}
-                alt=""
+                alt="plau indicator"
                 className="mr-2 sm:mr-4 w-[24px] h-[24px]"
               />
             ) : (
@@ -64,10 +65,13 @@ const PopularSongsArtist = ({ topSongs, id }) => {
               alt=""
               className="w-10 h-10"
             />
-            <p className=" truncate max-w-[83px] sm:max-w-[250px] font-semibold ml-2 sm:ml-4">
+            <p
+              className=" truncate max-w-[83px] sm:max-w-[250px] font-semibold ml-2 sm:ml-4 cursor-pointer"
+              onClick={() => navigate(`/track/${item.id}`)}
+            >
               {item.attributes.name}
             </p>
-            <div className=" flex gap-2 items-center ml-auto pr-8">
+            <div className=" flex gap-2 items-center ml-auto ">
               <PlaylistPopupButton width={8} heigth={8} />
               <FaPlayCircle
                 className="w-8 h-8 hover:text-white cursor-pointer"

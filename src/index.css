@@ -6,6 +6,10 @@ body {
   background-color: #000;
 }
 
+html {
+  width: 100%;
+}
+
 .text_primary {
   color: rgb(167, 167, 167);
 }
@@ -102,8 +106,8 @@ input[type="range"] {
 }
 
 .divider {
-  margin-bottom: 6rem;
-  margin-top: 6rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 /* Animations */

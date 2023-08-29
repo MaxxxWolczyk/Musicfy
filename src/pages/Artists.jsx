@@ -38,19 +38,17 @@ const Artists = () => {
         <div className="divider" />
         {data.data[0].views["full-albums"].data.length > 0 && (
           <>
-            <h3 className="text-white font-bold text-lg sm:text-3xl mb-2">
+            <h3 className="text-white font-bold text-lg sm:text-3xl mb-4">
               Dyskografia:
             </h3>
             <Albums albums={data.data[0].views["full-albums"].data} />
           </>
         )}
         <div className="divider" />
-        <h3 className="text-white font-bold text-lg sm:text-3xl mb-2">
+        <h3 className="text-white font-bold text-lg sm:text-3xl mb-8">
           Similar Artists:
         </h3>
         <SimilarArtists artists={data.data[0].views["similar-artists"].data} />
-
-        <div className="mb-48"></div>
       </div>
     </div>
   );

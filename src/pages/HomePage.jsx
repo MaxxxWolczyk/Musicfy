@@ -30,7 +30,7 @@ function HomePage() {
         <TopCharts data={TCCData} isFetching={TCCFetching} error={TCCError} />
       </div>
       <TopChartsGenre />
-      <div className="mb-20" />
+      <div className="mb-4" />
     </div>
   );
 }

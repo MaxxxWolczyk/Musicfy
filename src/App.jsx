@@ -38,7 +38,10 @@ function App() {
   console.log(gradientColor);
 
   return (
-    <div className="h-screen overflow-hidden sm:px-2 sm:py-2">
+    <div
+      className="h-screen overflow-hidden sm:px-2 sm:py-2"
+      style={{ height: "100dvh" }}
+    >
       <div className="flex sm:gap-2 relative overflow-hidden  h-[calc(100%-88px)] sm:h-full">
         <section className="h-full hidden sm:block sm:w-1/3 lg:w-1/4 rounded-md">
           <SideBar />

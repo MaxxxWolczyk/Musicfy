@@ -2,11 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="pb-14 flex flex-col  items-center">
+    <div className="pb-20 sm:pb-28 flex flex-col items-center">
       <div className="w-full h-[1px] bg-white/20 rounded-lg" />
       <div className="flex justify-evenly mt-2 text-white w-full">
-        <p>Item 1</p>
-        <p>Item 1</p>
         <p>Item 1</p>
         <p>Item 1</p>
         <p>Item 1</p>

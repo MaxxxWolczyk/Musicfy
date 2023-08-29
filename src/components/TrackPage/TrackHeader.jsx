@@ -20,9 +20,12 @@ const TrackHeader = ({ bgImage, coverart, title, gradientColor, artists }) => {
       />
 
       <div className="flex flex-col sm:h-52 justify-center">
-        <h3 className="text-white font-bold text-3xl sm:text-6xl">
-          {title.length > 30 ? title.slice(0, 30) : title}
-        </h3>
+        {title.length > 30 ? (
+          <h3 className="text-white font-bold text-xl sm:text-3xl">{title}</h3>
+        ) : (
+          <h3 className="text-white font-bold text-3xl sm:text-6xl">{title}</h3>
+        )}
+
         <div className="flex">
           {artists?.map((item, index) => (
             <Link

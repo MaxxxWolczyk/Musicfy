@@ -38,7 +38,7 @@ const RelatedSongs = ({ trackKey, setSongsArr, handlePlay }) => {
       <h3 className="text-white font-bold text-lg sm:text-3xl mb-2 mt-8">
         Fani lubią też:
       </h3>
-      <div className={`flex flex-col gap-4 w-full`}>
+      <div className={`flex flex-col gap-4 w-full mb-4`}>
         {data.map((item, index) => (
           <>
             {item.hub.actions !== undefined && (
@@ -62,14 +62,18 @@ const RelatedSongs = ({ trackKey, setSongsArr, handlePlay }) => {
                   </p>
                 )}
 
-                <img src={item.images.coverart} alt="" className="w-10 h-10" />
+                <img
+                  src={item.images.coverart}
+                  alt="coverart"
+                  className="w-10 h-10"
+                />
                 <p
                   className=" truncate max-w-[83px] sm:max-w-[250px] font-semibold ml-2 sm:ml-4 cursor-pointer"
                   onClick={() => navigate(`/track/${item?.hub.actions[0]?.id}`)}
                 >
                   {item.title}
                 </p>
-                <div className=" flex gap-2 items-center ml-auto pr-8">
+                <div className=" flex gap-2 items-center ml-auto ">
                   <PlaylistPopupButton width={8} heigth={8} />
                   <FaPlayCircle
                     className="w-8 h-8 hover:text-white cursor-pointer"

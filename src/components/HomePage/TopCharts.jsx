@@ -12,7 +12,7 @@ const TopCharts = ({ data, isFetching, error }) => {
     data.map((track) => {
       if (track.hub.actions === undefined) return;
       songsArr.push({
-        key: track.key,
+        key: track.hub.actions[0].id,
         id: track.hub.actions[0].id,
         image: track.images.coverart,
         src: track.hub.actions[1].uri,
@@ -41,15 +41,19 @@ const TopCharts = ({ data, isFetching, error }) => {
             <MusicElementSkeleton key={index} color={item} />
           ))
         : data.map((item) => (
-            <MusicElement
-              key={item.key}
-              id={item.key}
-              handlePlay={handlePlay}
-              songKey={item.key}
-              imageURL={item?.images?.coverart}
-              title={item?.title}
-              subtitle={item?.subtitle}
-            />
+            <>
+              {item.hub.actions !== undefined && (
+                <MusicElement
+                  key={item?.hub.actions[0].id}
+                  id={item?.hub.actions[0].id}
+                  handlePlay={handlePlay}
+                  songKey={item?.hub?.actions[0].id}
+                  imageURL={item?.images?.coverart}
+                  title={item?.title}
+                  subtitle={item?.subtitle}
+                />
+              )}
+            </>
           ))}
     </div>
   );

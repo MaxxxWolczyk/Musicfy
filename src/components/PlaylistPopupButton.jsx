@@ -8,12 +8,10 @@ const PlaylistPopupButton = ({ width, heigth }) => {
   const { showModal } = useSelector((state) => state.design);
   const dispatch = useDispatch();
 
-  console.log(showModal);
-
   return (
     <div>
       <BiDotsVertical
-        className={`text-white w-${width} h-${heigth} text_primary hover:text-white cursor-pointer`}
+        className={` w-${width} h-${heigth} text_primary hover:text-white cursor-pointer transition-colors`}
         onClick={() => dispatch(setShowModal(!showModal))}
       />
     </div>

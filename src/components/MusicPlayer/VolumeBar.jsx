@@ -4,7 +4,7 @@ import { HiOutlineSpeakerXMark, HiOutlineSpeakerWave } from "react-icons/hi2";
 
 const VolumeBar = ({ volume, setVolume, preVolume, setPreVolume }) => {
   return (
-    <div className="flex gap-2">
+    <div className="hidden sm:flex gap-2">
       {volume === 0 ? (
         <HiOutlineSpeakerXMark
           className="w-6 h-6"

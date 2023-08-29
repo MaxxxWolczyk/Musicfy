@@ -21,7 +21,8 @@ const SearchOutput = () => {
     data?.tracks.hits.map((item) => {
       if (item.track.hub.actions === undefined) return;
       songsArr.push({
-        key: item.track.key,
+        key: item.track.hub.actions[0].id,
+        id: item.track.hub.actions[0].id,
         image: item.track.images.coverart,
         src: item.track.hub.actions[1].uri,
         title: item.track.title,
@@ -50,7 +51,7 @@ const SearchOutput = () => {
             ))
           : data?.artists?.hits?.map((item) => (
               <ArtistElement
-                key={item?.artist.adamid}
+                key={item?.hub?.actions[0].id}
                 avatarUrl={item?.artist.avatar}
                 name={item?.artist.name}
                 id={item?.artist.adamid}
@@ -66,11 +67,12 @@ const SearchOutput = () => {
           : data?.tracks?.hits?.map((item) => (
               <MusicElement
                 key={item?.track?.key}
+                id={item?.track.hub.actions[0].id}
                 imageURL={item?.track?.images.coverart}
                 title={item?.track?.title}
                 subtitle={item?.track?.subtitle}
                 handlePlay={handlePlay}
-                songKey={item?.track?.key}
+                songKey={item?.track.hub.actions[0].id}
               />
             ))}
       </div>

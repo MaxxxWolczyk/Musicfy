@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setGradient } from "../../redux/features/DesignSlice";
 import { Link } from "react-router-dom";
+import Loading from "../Loading";
 
 const TrackHeader = ({ bgImage, coverart, title, gradientColor, artists }) => {
   const dispatch = useDispatch();
-  console.log(bgImage);
 
   useEffect(() => {
     dispatch(setGradient(gradientColor));
@@ -15,7 +15,7 @@ const TrackHeader = ({ bgImage, coverart, title, gradientColor, artists }) => {
     <div className="flex flex-col sm:flex-row sm:items-center px-4">
       <img
         src={coverart}
-        alt=""
+        alt="coverart"
         className="w-36 h-36 sm:w-52 sm:h-52 object-cover self-center mb-4 sm:mb-0 mr-0 sm:mr-8 shadow-2xl"
       />
 
@@ -28,7 +28,7 @@ const TrackHeader = ({ bgImage, coverart, title, gradientColor, artists }) => {
             <Link
               key={item.adamid}
               to={`/artists/${item.adamid}`}
-              className="text_primary hover:text-white border-2 border-transparent hover:underline"
+              className="text-white font-semi border-2 border-transparent hover:underline"
             >
               <p className="">
                 {item?.alias

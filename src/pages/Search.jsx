@@ -21,7 +21,7 @@ const Search = () => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "1f79830bf8mshe2c8ab5829b2908p114541jsn73bc34c1ecce",
+        "X-RapidAPI-Key": import.meta.env.VITE_SHAZAM_KEY,
         "X-RapidAPI-Host": "shazam-core.p.rapidapi.com",
       },
     };

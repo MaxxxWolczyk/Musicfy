@@ -58,7 +58,7 @@ function Profile({ gradientColor }) {
 
   return (
     <div
-      className="py-4 pr-2 sticky w-full top-0 z-50 bg-white"
+      className="py-4 pr-2 sticky w-full top-0 z-20 "
       style={{ backgroundColor: gradientColor }}
     >
       {loggedIn ? <ProfileComponent user={auth.currentUser} /> : <OAuth />}

@@ -9,9 +9,6 @@ const ArtistElement = ({ avatarUrl, name, id }) => {
       className="flex flex-col items-center gap-2 text_primary flex-shrink-0 hover:text-white transition-all max-w-[160px] "
       onClick={() => {
         navigate(`/artists/${id}`);
-        document
-          .getElementById("routeContainer")
-          .scroll({ top, behavior: "smooth" });
       }}
     >
       {avatarUrl === undefined ? (

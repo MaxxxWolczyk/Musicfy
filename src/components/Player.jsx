@@ -79,7 +79,7 @@ function Player() {
         showMobileNav
           ? "h-full flex-col justify-end gap-8 bg-black bg-opacity-90 p-4 "
           : "h-auto justify-between "
-      } absolute bottom-0 sm:translate-y-0 w-full sm:bg-black bg-opacity-90 sm:p-4 text-white flex px-2 xl:px-14 items-center`}
+      } absolute z-50 bottom-0 sm:translate-y-0 w-full sm:bg-black bg-opacity-90 sm:p-4 text-white flex px-2 xl:px-14 items-center`}
     >
       {showMobileNav || window.innerWidth > 500 ? (
         <>

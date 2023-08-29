@@ -27,7 +27,16 @@ export const shazamCoreApi = createApi({
       query: (genre) => `/v1/charts/genre-world?genre_code=${genre}`,
     }),
     getTrackById: builder.query({
-      query: (trackId) => `/v1/tracks/details?track_id=${trackId}`,
+      query: (trackId) => `/v2/tracks/details?track_id=${trackId}`,
+    }),
+    getTrackByKey: builder.query({
+      query: (trackKey) => `/v1/tracks/details?track_id=${trackKey}`,
+    }),
+    getRelatedTrackByKey: builder.query({
+      query: (trackKey) => `/v1/tracks/related?track_id=${trackKey}`,
+    }),
+    getSimilarTrackByKey: builder.query({
+      query: (trackKey) => `/v1/tracks/similarities?track_id=${trackKey}`,
     }),
   }),
 });
@@ -39,4 +48,7 @@ export const {
   useGetArtistDataQuery,
   useGetSongsByGenreQuery,
   useGetTrackByIdQuery,
+  useGetTrackByKeyQuery,
+  useGetRelatedTrackByKeyQuery,
+  useGetSimilarTrackByKeyQuery,
 } = shazamCoreApi;

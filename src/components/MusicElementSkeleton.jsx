@@ -1,7 +1,7 @@
 const MusicElementSkeleton = ({ color }) => {
   return (
     <div className=" bg-black/40 flex-shrink-0 w-[176px] rounded-xl shadow-xl">
-      <div className="flex flex-col p-4 rounded-lg blur-md">
+      <div className="flex flex-col p-4 rounded-lg blur-sm">
         <div
           className="w-36 h-36 bg_primary rounded-md mb-4"
           style={{

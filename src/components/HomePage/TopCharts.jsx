@@ -26,18 +26,7 @@ const TopCharts = ({ data, isFetching, error }) => {
   return (
     <div className="flex gap-4 mt-4 mb-4 pb-4 overflow-x-scroll">
       {isFetching
-        ? [
-            "#F6FFDE",
-            "#E3F2C1",
-            "#C9DBB2",
-            "#AAC8A7",
-            "#FFF8D6",
-            "#F7E1AE",
-            "#A4D0A4",
-            "#617A55",
-            "#9E6F21",
-            "#D4FAFC",
-          ].map((item, index) => (
+        ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
             <MusicElementSkeleton key={index} color={item} />
           ))
         : data.map((item) => (
@@ -51,6 +40,14 @@ const TopCharts = ({ data, isFetching, error }) => {
                   imageURL={item?.images?.coverart}
                   title={item?.title}
                   subtitle={item?.subtitle}
+                  songObj={{
+                    key: item.hub.actions[0].id,
+                    id: item.hub.actions[0].id,
+                    image: item.images.coverart,
+                    src: item.hub.actions[1].uri,
+                    title: item.title,
+                    artists: item.artists,
+                  }}
                 />
               )}
             </>

@@ -15,6 +15,7 @@ const MusicElement = ({
   handlePlay,
   songKey,
   id,
+  songObj,
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const MusicElement = ({
                 : "hidden  group-hover:flex "
             } absolute w-full h-full justify-center items-center opacity-0 hover:opacity-100 bg-black/50 transition-all`}
           >
-            <PlaylistPopupButton width={10} heigth={10} />
+            <PlaylistPopupButton width={10} heigth={10} songObj={songObj} />
             <FaPlayCircle
               className={`${
                 songKey === activeSong?.key

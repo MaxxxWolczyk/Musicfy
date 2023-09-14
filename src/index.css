@@ -22,6 +22,13 @@ html {
   background-color: #121212;
 }
 
+.bg_secondary {
+  background-color: rgba(53, 53, 53, 0.6);
+}
+.bg_secondary_100 {
+  background-color: rgba(53, 53, 53);
+}
+
 .bg_gradient_blue {
   background: linear-gradient(0deg, rgba(18, 18, 18, 1) 55%, #3131b199 100%);
 }
@@ -78,8 +85,6 @@ html {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgb(167, 167, 167);
-
-  border-radius: 5px;
 }
 
 /* Handle on hover */

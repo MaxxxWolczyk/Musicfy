@@ -72,8 +72,9 @@ const Track = () => {
             {
               alias:
                 data.resources["shazam-songs"][songIndex].attributes.artist,
-              id: data.resources["shazam-songs"][songIndex].relationships
-                .artists.data[0].id,
+              adamid:
+                data.resources["shazam-songs"][songIndex].relationships.artists
+                  .data[0].id,
             },
           ],
         },
@@ -108,6 +109,33 @@ const Track = () => {
         <TrackControls
           handlePlay={handlePlay}
           songId={data.resources.songs[Object.keys(data.resources.songs)[0]].id}
+          songObj={{
+            key: data.resources.songs[Object.keys(data.resources.songs)[0]].id,
+            id: data.resources.songs[Object.keys(data.resources.songs)[0]].id,
+            image:
+              data.resources["shazam-songs"][
+                Object.keys(data.resources["shazam-songs"])[0]
+              ].attributes.images.coverArt,
+            src: data.resources["shazam-songs"][
+              Object.keys(data.resources["shazam-songs"])[0]
+            ].attributes.streaming.preview,
+            title:
+              data.resources["shazam-songs"][
+                Object.keys(data.resources["shazam-songs"])[0]
+              ].attributes.title,
+            artists: [
+              {
+                alias:
+                  data.resources["shazam-songs"][
+                    Object.keys(data.resources["shazam-songs"])[0]
+                  ].attributes.artist,
+                adamid:
+                  data.resources["shazam-songs"][
+                    Object.keys(data.resources["shazam-songs"])[0]
+                  ].relationships.artists.data[0].id,
+              },
+            ],
+          }}
         />
         {data.resources.lyrics && (
           <TrackLyrics

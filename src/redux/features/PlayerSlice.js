@@ -6,6 +6,7 @@ const initialState = {
   currentIndex: "",
   isPlaying: false,
   activeSong: {},
+  selectedSong: {},
   shuffle: false,
 };
 
@@ -60,6 +61,9 @@ const PlayerSlice = createSlice({
     setShuffle: (state) => {
       state.shuffle = !state.shuffle;
     },
+    setSelectedSong: (state, action) => {
+      state.selectedSong = action.payload;
+    },
   },
 });
 
@@ -71,6 +75,7 @@ export const {
   setNextSong,
   setPrevSong,
   setShuffle,
+  setSelectedSong,
 } = PlayerSlice.actions;
 
 export default PlayerSlice.reducer;

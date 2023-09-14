@@ -73,6 +73,16 @@ const SearchOutput = () => {
                 subtitle={item?.track?.subtitle}
                 handlePlay={handlePlay}
                 songKey={item?.track.hub.actions[0].id}
+                songObj={{
+                  key: item.track.hub.actions[0].id,
+                  id: item.track.hub.actions[0].id,
+                  image: item.track.images.coverart,
+                  src: item.track.hub.actions[1].uri,
+                  title: item.track.title,
+                  artists: [
+                    { alias: item.track.subtitle, ...item.track.artists[0] },
+                  ],
+                }}
               />
             ))}
       </div>

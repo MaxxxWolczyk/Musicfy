@@ -7,6 +7,7 @@ import PlaylistPopupButton from "../PlaylistPopupButton";
 import { FaPlayCircle } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setSelectedSong } from "../../redux/features/PlayerSlice";
 
 const RelatedSongs = ({ trackKey, setSongsArr, handlePlay }) => {
   const { data, isFetching, error } = useGetRelatedTrackByKeyQuery(trackKey);
@@ -40,7 +41,7 @@ const RelatedSongs = ({ trackKey, setSongsArr, handlePlay }) => {
       </h3>
       <div className={`flex flex-col gap-4 w-full mb-4`}>
         {data.map((item, index) => (
-          <>
+          <div key={item.key}>
             {item.hub.actions !== undefined && (
               <div
                 className={`hover:bg-white hover:bg-opacity-25 rounded-md transition-colors flex w-full items-center p-2 ${
@@ -74,7 +75,18 @@ const RelatedSongs = ({ trackKey, setSongsArr, handlePlay }) => {
                   {item.title}
                 </p>
                 <div className=" flex gap-2 items-center ml-auto ">
-                  <PlaylistPopupButton width={8} heigth={8} />
+                  <PlaylistPopupButton
+                    width={8}
+                    heigth={8}
+                    songObj={{
+                      key: item.hub.actions[0].id,
+                      id: item.hub.actions[0].id,
+                      image: item.images.coverart,
+                      src: item.hub.actions[1].uri,
+                      title: item.title,
+                      artists: item.artists,
+                    }}
+                  />
                   <FaPlayCircle
                     className="w-8 h-8 hover:text-white cursor-pointer"
                     onClick={() => handlePlay(item?.hub.actions[0].id)}
@@ -82,7 +94,7 @@ const RelatedSongs = ({ trackKey, setSongsArr, handlePlay }) => {
                 </div>
               </div>
             )}
-          </>
+          </div>
         ))}
       </div>
     </>

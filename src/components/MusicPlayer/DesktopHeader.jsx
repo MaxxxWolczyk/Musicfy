@@ -10,9 +10,11 @@ const DesktopHeader = ({ activeSong }) => {
         className="w-72 h-72 mb-8 sm:mb-0 sm:w-20 sm:h-20 sm:object-fill"
       />
       <div>
-        <p className="text-3xl sm:text-base font-bold truncate w-[280px] sm:w-[100px] md:w-[250px]">
-          {activeSong?.title}
-        </p>
+        <Link to={`/track/${activeSong?.id}`}>
+          <p className="text-3xl sm:text-base font-bold truncate w-[280px] sm:w-[100px] md:w-[250px]">
+            {activeSong?.title}
+          </p>
+        </Link>
         <div className="flex">
           {activeSong?.artists.map((item, index) => (
             <Link

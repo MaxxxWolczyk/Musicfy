@@ -1,4 +1,5 @@
 import "./App.css";
+import { createPortal } from "react-dom";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setGradient } from "./redux/features/DesignSlice";
@@ -13,6 +14,9 @@ import Artists from "./pages/Artists";
 import { useEffect } from "react";
 import Track from "./pages/Track";
 import Footer from "./components/Footer";
+import Modal from "./components/Modal/Modal";
+import Collection from "./pages/Collection";
+import Playlist from "./pages/Playlist";
 
 function App() {
   const location = useLocation();
@@ -35,8 +39,6 @@ function App() {
     }
   }, [location.pathname]);
 
-  console.log(gradientColor);
-
   return (
     <div
       className="h-screen overflow-hidden sm:px-2 sm:py-2"
@@ -57,7 +59,7 @@ function App() {
               backgroundPosition: "top",
             }}
           >
-            <div className="h-[calc(100%-80px)] sm:rounded-xl">
+            <div className="sm:rounded-xl">
               <Profile gradientColor={gradientColor} />
               <Routes>
                 <Route path="/" element={<HomePage />} />
@@ -65,12 +67,15 @@ function App() {
                 <Route path="/library" element={<Library />} />
                 <Route path="/artists/:artistId" element={<Artists />} />
                 <Route path="/track/:trackId" element={<Track />} />
+                <Route path="/collection/liked" element={<Collection />} />
+                <Route path="/playlist/:playlistId" element={<Playlist />} />
               </Routes>
             </div>
             <Footer />
           </div>
         </section>
         <Player />
+        {createPortal(<Modal />, document.getElementById("modal"))}
       </div>
       <MobileNav />
     </div>

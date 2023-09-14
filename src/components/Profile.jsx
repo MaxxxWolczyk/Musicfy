@@ -52,13 +52,17 @@ const ProfileComponent = ({ user }) => {
 
 function Profile({ gradientColor }) {
   const { loggedIn, checkingStatus } = useAuthStatus();
-  console.log(gradientColor);
 
-  if (checkingStatus) return <p>loading...</p>;
+  if (checkingStatus)
+    return (
+      <div className="h-[72px] flex justify-end items-center pr-10">
+        <p className="text-white font-bold">loading...</p>
+      </div>
+    );
 
   return (
     <div
-      className="py-4 pr-2 sticky w-full top-0 z-20 "
+      className="py-4 pr-2 sticky w-full top-0 z-20"
       style={{ backgroundColor: gradientColor }}
     >
       {loggedIn ? <ProfileComponent user={auth.currentUser} /> : <OAuth />}

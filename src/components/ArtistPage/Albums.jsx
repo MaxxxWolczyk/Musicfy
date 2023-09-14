@@ -1,7 +1,6 @@
 import React from "react";
 
 const Albums = ({ albums }) => {
-  console.log(albums);
   return (
     <div className="flex flex-col sm:flex-row gap-4 sm:overflow-y-scroll pb-4">
       {albums.map((album) => (

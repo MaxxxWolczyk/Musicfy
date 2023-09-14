@@ -72,7 +72,18 @@ const PopularSongsArtist = ({ topSongs, id }) => {
               {item.attributes.name}
             </p>
             <div className=" flex gap-2 items-center ml-auto ">
-              <PlaylistPopupButton width={8} heigth={8} />
+              <PlaylistPopupButton
+                width={8}
+                heigth={8}
+                songObj={{
+                  key: item.id,
+                  id: item.id,
+                  image: item.attributes.artwork.url,
+                  src: item.attributes.previews[0].url,
+                  title: item.attributes.name,
+                  artists: [{ alias: item.attributes.artistName, adamid: id }],
+                }}
+              />
               <FaPlayCircle
                 className="w-8 h-8 hover:text-white cursor-pointer"
                 onClick={() => {

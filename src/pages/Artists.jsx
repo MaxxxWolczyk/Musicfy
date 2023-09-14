@@ -23,7 +23,7 @@ const Artists = () => {
   if (error) return <p>Error..</p>;
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col h-auto">
       <ArtistHeader
         avatarUrl={data.data[0].avatar}
         name={data.data[0].attributes.name}

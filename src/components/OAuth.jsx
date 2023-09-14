@@ -26,14 +26,15 @@ function OAuth() {
         await setDoc(doc(db, "users", user.uid), {
           name: user.displayName,
           email: user.email,
+          avatarUrl: user.photoURL,
+          favSongs: [],
+          friends: [],
           timestamp: serverTimestamp(),
         });
       }
 
       navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   const onGoogleAuth = async () => {
     try {
@@ -49,9 +50,9 @@ function OAuth() {
         await setDoc(doc(db, "users", user.uid), {
           name: user.displayName,
           email: user.email,
-          fav_movies: [],
-          fav_tv: [],
-          avatar_url: "",
+          avatarUrl: user.photoURL,
+          favSongs: [],
+          friends: [],
           timestamp: serverTimestamp(),
         });
       }
